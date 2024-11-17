@@ -4,43 +4,57 @@
       "id": "1",
       "author": "Keziah Joel",
       "title": "How i made my first million",
-      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit "
+      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit ",
+      "likes": 5,
+      "dislikes": 8
     },
     {
       "id": "2",
       "author": "Ada Okafor",
       "title": "Using React to build native app",
-      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit "
+      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit ",
+      "likes": 6,
+      "dislikes": 1
     },
     {
       "id": "3",
       "author": "Taiwo Oye",
       "title": "Explaning react to you in Urhobo",
-      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit "
+      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit ",
+      "likes": 1,
+      "dislikes": 1
     },
     {
       "id": "4",
       "author": "Ayo Aransiola",
       "title": "Open Source contribution",
-      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit "
+      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit ",
+      "likes": 3,
+      "dislikes": 1
     },
     {
       "id": "5",
       "author": "John Doe",
       "title": "How i will spend my first million",
-      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit "
+      "content": "lorem ipsum dolor isit lorem ipsum dolor isit lorem ipsum dolor isit ",
+      "likes": 5,
+      "dislikes": 1
     },
     {
+      "id": "98d4",
       "title": "This is a Sample blog post",
       "author": "Taiwo Sa",
       "content": "This is a Sample blog postThis is hello hwellohhhhhhhhha Sample blog postThis is a Sample blog postThis is a Sample blog postThis is a Sample blog post",
-      "id": "98d4"
+      "likes": 1,
+      "dislikes": 1
     },
     {
       "id": "940f",
       "title": "sample post",
       "author": "taiwo",
-      "content": "sample post sample post"
+      "content": "sample post sample post",
+      "likes": 1,
+      "dislikes": 1
     }
   ]
 }

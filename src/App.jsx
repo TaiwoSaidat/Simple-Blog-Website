@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import { fetchPosts, deletePost } from "./actions/blogActions";
+import { fetchPosts, deletePost, likePost,dislikePost } from "./actions/blogActions";
 import { useDispatch, useSelector } from "react-redux";
 import AddPostForm from "./components/AddPostForm";
 import EditPostForm from "./components/EditPostForm";
@@ -42,6 +42,12 @@ function App() {
               <button onClick={() => toggleEdit(post)}>Edit</button>
               <button onClick={() => dispatch(deletePost(post.id))}>
                 Delete
+              </button>
+              <button onClick={() => dispatch(likePost(post.id, post.likes, post))}>
+                Like {post.likes}
+              </button>
+              <button onClick={() => dispatch(dislikePost(post.id, post.dislikes, post))}>
+                Dislike {post.dislikes}
               </button>
             </div>
           ))
