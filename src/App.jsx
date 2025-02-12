@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       {/* <div className=" border-2 flex items-center justify-center py-10 "> */}
-      <div className=" border-10 flex flex-col items-center justify-center py-4 ">
+      <div className=" border-10 borde flex flex-col items-center justify-center py-4 ">
         <span className=" regular-60 mt-8 ">Sample Blog Posts</span>
 
         <div className="  p-6 ">
