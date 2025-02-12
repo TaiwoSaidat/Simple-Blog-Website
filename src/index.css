@@ -1,3 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+/* import 'tailwindcss'; */
+/* @import 'tailwindcss'; */
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: rgb(211, 170, 119);
+}
+
+body {
+  font-family: Inter;
+}
+
+@layer utilities {
+  /* FONTS */
+  .small-16 {
+    @apply text-[16px] font-[500] leading-[28px];
+  }
+
+  .regular-16 {
+    @apply text-[16px] font-[700] leading-[28px];
+  }
+
+  .small-24 {
+    @apply text-[24px] font-[500] leading-[32px];
+  }
+
+  .medium-24 {
+    @apply text-[24px] font-[700] leading-[32px];
+  }
+
+  .regular-24 {
+    @apply text-[24px] font-[800] leading-[32px];
+  }
+
+  .regular-32 {
+    @apply text-[32px] font-[800] leading-[32px];
+  }
+
+  .small-28 {
+    @apply text-[28px] font-[500] leading-[28px];
+  }
+
+  .regular-48 {
+    @apply text-[48px] font-[800] leading-[56px];
+  }
+
+  .regular-60 {
+    @apply text-[60px] font-[700] leading-[56px];
+  }
+  .regular-64 {
+    @apply text-[64px] font-[800] leading-[72px];
+  }
+}
+
+/* body{
+  background-color: rgb(211, 170, 119);
+} */
+
+/* #post{
+  background-color: rgb(255, 164, 99) ;
+}
+
+#form{
+  background-color: rgb(173, 106, 58) ;
+} */
+
+/* body {
+  background-color: grey;
+}
+
+
+
+body {
+  display: block;
+}
+
+#app{ 
+  border: 2px blue dotted;
+  width: 50%;
+  margin: 30px 50px ;
+} */
+/* 
+#section div {
+  border: 2px red dotted;
+  margin: 30px 50px ;
+} */
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,7 +115,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
+
+/* 
 
 a {
   font-weight: 500;

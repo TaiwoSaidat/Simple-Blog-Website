@@ -1,54 +1,68 @@
-// components/AddPostForm.jsll;x
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createPost } from "../actions/blogActions";
+import React, { useState } from "react";
+import { addData } from "../../firebaseFunctions";
 
-const AddPostForm = () => {
+const AddPostForm = ({ toggleForm }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
-  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPost = { title, author, content };
-    dispatch(createPost(newPost));
-    setTitle("");
-    setAuthor("");
-    setContent("");
+
+    const postData = { title, author, content };
+    const response = await addData(postData);
+
+    if (response.success) {
+      console.log("New Post ID:", response.id);
+      setTitle("");
+      setAuthor("");
+      setContent("");
+      toggleForm();
+    } else {
+      console.error("Failed to add post:", response.error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create New Post</h2>
-      <div>
-        <label>Title:</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
+    <>
+      <div className=" bg-[#dda15e] border-2 rounded-2xl p-3  ">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+          <div className="flex justify-center regular-24">Create New Post</div>
+          <div>
+            <label className=" regular-16">Title:</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              className="border-1"
+            />
+          </div>
+          <div>
+            <label className=" regular-16">Author:</label>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
+              className="border-1"
+            />
+          </div>
+          <div>
+            <label className=" regular-16">Content:</label>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+              className="border-1"
+            ></textarea>
+          </div>
+          <button type="submit" className=" border-1 rounded-4xl">
+            Upload Post
+          </button>
+        </form>
       </div>
-      <div>
-        <label>Author:</label>
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Content:</label>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          required
-        ></textarea>
-      </div>
-      <button type="submit">Add Post</button>
-    </form>
+    </>
   );
 };
 

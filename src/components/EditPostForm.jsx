@@ -1,54 +1,72 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updatePost } from "../actions/blogActions";
+import React, { useState } from "react";
+import { updatePost } from "../../firebaseFunctions";
 
 const EditPostForm = ({ post, toggleEdit }) => {
   const [title, setTitle] = useState(post.title);
   const [author, setAuthor] = useState(post.author);
   const [content, setContent] = useState(post.content);
-  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedPost = { title, author, content };
-    dispatch(updatePost(post.id, updatedPost));
-    toggleEdit(false);
+
+    const updatedData = { title, author, content };
+    const response = await updatePost(post.id, updatedData);
+
+    if (response.success) {
+      console.log("Post updated:", response.updatedData);
+      toggleEdit();
+    } else {
+      console.error("Failed to update post:", response.error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Edit Post</h2>
-      <div>
-        <label>Title:</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
+    <>
+      <div className=" bg-[#dda15e] border-2 rounded-2xl p-3  ">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 ">
+          <div className="flex justify-center regular-24 ">Edit Post</div>
+          <div>
+            <label className="regular-16">Post Title:</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              className="border-1"
+            />
+          </div>
+          <div>
+            <label className="regular-16">Author:</label>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
+              className="border-1"
+            />
+          </div>
+          <div>
+            <label className="regular-16">Content:</label>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+              className="border-1"
+            ></textarea>
+          </div>
+          <button type="submit" className="border-1 rounded-4xl">
+            Update Post
+          </button>
+          <button
+            type="button"
+            onClick={toggleEdit}
+            className="border-1 rounded-4xl"
+          >
+            Cancel
+          </button>
+        </form>
       </div>
-      <div>
-        <label>Author:</label>
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Content:</label>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          required
-        ></textarea>
-      </div>
-      <button type="submit">Update Post</button>
-      <button type="button" onClick={() => toggleEdit(false)}>
-        Cancel
-      </button>
-    </form>
+    </>
   );
 };
 
