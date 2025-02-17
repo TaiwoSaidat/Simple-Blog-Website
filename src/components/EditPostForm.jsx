@@ -34,7 +34,6 @@ const EditPostForm = ({ post, toggleEdit }) => {
             </div>
           </button>
 
-          {/*  <div className="border-1 p-2 text-white bg-black rounded-full ">x</div> */}
           <div className="flex justify-center regular-24 ">Edit Post</div>
           <div>
             <label className="regular-16 flex justify-center">Title:</label>
@@ -65,12 +64,9 @@ const EditPostForm = ({ post, toggleEdit }) => {
               className="border-1 w-full rounded-2xl px-3"
             ></textarea>
           </div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> */}
           <button type="submit" className=" w-[%0%] border-1  border-black rounded-4xl text-[#dda15e] bg-black">
             Update Post
           </button>
-
-          {/* </div> */}
         </form>
       </div>
     </>
