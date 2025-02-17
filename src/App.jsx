@@ -7,6 +7,7 @@ import {
   fetchPosts,
   handleDislike,
   handleLike,
+  subscribeToPosts,
 } from "../firebaseFunctions";
 import del from "../src/assets/delete-wh-36.png";
 import edit from "../src/assets/edit-wh-38.png";
@@ -32,14 +33,22 @@ function App({ post }) {
     setSelectedPost(null);
   };
 
-  // new data
+  //   useEffect(() => {
+  //     const unsubscribe = subscribeToPosts(setPosts);
+  //     return () => unsubscribe(); // Cleanup the listener on unmount
+  //   }, []);
+
   useEffect(() => {
     async function getPosts() {
+      setLoading(true);
       const fetchedPosts = await fetchPosts();
       setPosts(fetchedPosts);
       setLoading(false);
     }
     getPosts();
+
+    const unsubscribe = subscribeToPosts(setPosts);
+    return () => unsubscribe();
   }, []);
 
   const handleDelete = async (postId) => {
@@ -54,13 +63,6 @@ function App({ post }) {
 
   if (loading)
     return (
-      // <div className="flex items-center justify-center h-[100vh] ">
-      //   {/* <div className=""> */}
-      //   <img src={del} alt="" />
-      //   {/* </div> */}
-      //   Loading...
-      // </div>
-
       <div className="flex items-center justify-center h-[100vh]">
         <div class="sk-chase">
           <div class="sk-chase-dot"></div>
@@ -75,31 +77,39 @@ function App({ post }) {
 
   return (
     <>
-      <div className=" flex flex-col items-center justify-center mx-2 md:mx-12 mt-12 rounded-4xl  ">
+      <div className=" flex flex-col items-center justify-center mx-2 md:mx-12 mt-12 rounded-4xl gap-8 ">
         <NavBar />
 
-        <div className=" bg- w-full p-6 ">
-          <div className=" flex flex-col  bg-[#dda15e] border-2 rounded-2xl p-3  ">
-            <button
-              onClick={() => setShowForm(!showForm)}
-              // className="medium-24 w-full p-1      w-full flex justify-end "
-              className="  px-2 rounded-2xl "
-            >
-              {showForm ? "x" : "Want to upload your post? Click Here"}
-              {/*  {showForm && <AddPostForm toggleForm={() => setShowForm(false)} /> */}
-            </button>
+        {/* <div className=" bg-red-700 w-full  "> */}
 
-            {showForm && <AddPostForm toggleForm={() => setShowForm(false)} />}
-          </div>
+        <div className="w-full flex flex-col bg-[#dda15e] border-2 rounded-2xl p-3  ">
+          <button
+            onClick={() => setShowForm(!showForm)}
+            // className="medium-24 w-full p-1      w-full flex justify-end "
+            className="  px-2 rounded-2xl "
+          >
+            {showForm ? (
+              <span className=" w-full flex justify-end ">
+                <div className="border border-black rounded-4xl text-[#dda15e] bg-black medium-24 w-8 h-8 flex items-center justify-center ">
+                  x
+                </div>
+              </span>
+            ) : (
+              <span className=" ">Want to upload your post? Click Here</span>
+            )}
+            {/*  {showForm && <AddPostForm toggleForm={() => setShowForm(false)} /> */}
+          </button>
+
+          {showForm && <AddPostForm toggleForm={() => setShowForm(false)} />}
         </div>
+        {/* </div> */}
 
         {posts.length === 0 ? (
-          <div
-            id="posts"
-            className="w-full border rounded-2xl py-12 flex flex-col items-center justify-center gap-12"
-          >
+          <div className="w-full border rounded-2xl py-12 flex flex-col items-center justify-center gap-12">
             <div class="spinner"></div>
-            <p className=" px-24 regular-24 text-gray-500">Network error... Kindly reload</p>
+            <p className=" px-24 regular-24 text-gray-500">
+              Network error... Kindly reload
+            </p>
           </div>
         ) : (
           <div className=" p-4 gap-4 border-2 rounded-2xl grid grid-cols-1  ">
@@ -120,16 +130,16 @@ function App({ post }) {
                     <div className="  regular-18 ">
                       {post.title}
                       <span className=" text-gray-600 small-12">
-                        - {post.author}{" "}
+                        - {post.author}
                       </span>
                       <p className=" small-12 text-center">
                         Posted on:
                         {post.createdAt?.seconds
                           ? format(
                               new Date(post.createdAt.seconds * 1000),
-                              "PPpp"
+                              " PPpp"
                             )
-                          : "N/A"}
+                          : " N/A"}
                       </p>
                     </div>
 

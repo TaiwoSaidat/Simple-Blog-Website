@@ -6,7 +6,9 @@ const NavBar = () => {
     <>
       <div className="w-full flex  items-center gap-4   ">
         <div className="border-1 border-gray-300   ">
-          <img src={logo} alt="" width={48} height={48} />
+          <a href="/">
+            <img src={logo} alt="" width={48} height={48} />
+          </a>
         </div>
         {/* w-full text-center  */}
         <div className=" w-full text-center ">

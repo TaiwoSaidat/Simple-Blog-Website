@@ -22,7 +22,6 @@ const EditPostForm = ({ post, toggleEdit }) => {
 
   return (
     <>
-      {/* bg-[#dda15e] border-2 p-2  rounded-2xl w-full */}
       <div className="  ">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 ">
           <button
@@ -30,15 +29,15 @@ const EditPostForm = ({ post, toggleEdit }) => {
             onClick={toggleEdit}
             className=" flex justify-end"
           >
-            &times;
+            <div className="border border-black rounded-4xl text-[#dda15e] bg-black medium-24 w-8 h-8 flex items-center justify-center ">
+              x
+            </div>
           </button>
-          {/*             <div className="border-1 p-2 text-white bg-black rounded-full ">x</div>
-           */}
+
+          {/*  <div className="border-1 p-2 text-white bg-black rounded-full ">x</div> */}
           <div className="flex justify-center regular-24 ">Edit Post</div>
           <div>
-            <label className="regular-16 flex justify-center">
-              Title:
-            </label>
+            <label className="regular-16 flex justify-center">Title:</label>
             <input
               type="text"
               value={title}
@@ -67,7 +66,7 @@ const EditPostForm = ({ post, toggleEdit }) => {
             ></textarea>
           </div>
           {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> */}
-          <button type="submit" className="border-1 rounded-4xl">
+          <button type="submit" className=" w-[%0%] border-1  border-black rounded-4xl text-[#dda15e] bg-black">
             Update Post
           </button>
 

@@ -60,8 +60,11 @@ const AddPostForm = ({ toggleForm }) => {
               placeholder="Your Blog Post"
             ></textarea>
           </div>
-          <button type="submit" className=" border-1 rounded-4xl">
-            Upload Post
+          <button
+            type="submit"
+            className=" w-[%0%] border-1  border-black rounded-4xl text-[#dda15e] bg-black"
+          >
+            Update Post
           </button>
         </form>
       </div>

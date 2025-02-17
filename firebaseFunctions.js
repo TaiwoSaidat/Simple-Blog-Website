@@ -9,31 +9,14 @@ import {
   serverTimestamp,
   query,
   orderBy,
+  onSnapshot
 } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
 // Fetching posts from Firestore
-export async function fetchPosts() {
-  try {
-    const querySnapshot = await getDocs(collection(db, "posts"));
-    const posts = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    console.log("Here are the posts:", posts);
-    return posts;
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    return [];
-  }
-}
 // export async function fetchPosts() {
 //   try {
-//     const postsQuery = query(
-//       collection(db, "posts"),
-//       orderBy("createdAt", "desc")
-//     );
-//     const querySnapshot = await getDocs(postsQuery);
+//     const querySnapshot = await getDocs(collection(db, "posts"));
 //     const posts = querySnapshot.docs.map((doc) => ({
 //       id: doc.id,
 //       ...doc.data(),
@@ -45,6 +28,41 @@ export async function fetchPosts() {
 //     return [];
 //   }
 // }
+
+
+export function subscribeToPosts(setPosts) {
+  const postsQuery = query(
+    collection(db, "posts"),
+    orderBy("createdAt", "desc")
+  );
+
+  return onSnapshot(postsQuery, (snapshot) => {
+    const posts = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setPosts(posts); // Updates state immediately
+  });
+}
+
+export async function fetchPosts() {
+  try {
+    const postsQuery = query(
+      collection(db, "posts"),
+      orderBy("createdAt", "desc")
+    );
+    const querySnapshot = await getDocs(postsQuery);
+    const posts = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    console.log("Here are the posts:", posts);
+    return posts;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return [];
+  }
+}
 
 // Adding a post to Firestore
 export async function addData(postData) {
