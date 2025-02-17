@@ -64,7 +64,7 @@ const AddPostForm = ({ toggleForm }) => {
             type="submit"
             className=" w-[%0%] border-1  border-black rounded-4xl text-[#dda15e] bg-black"
           >
-            Update Post
+            Upload Post
           </button>
         </form>
       </div>
