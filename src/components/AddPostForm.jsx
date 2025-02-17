@@ -25,36 +25,39 @@ const AddPostForm = ({ toggleForm }) => {
 
   return (
     <>
-      <div className=" bg-[#dda15e] border-2 rounded-2xl p-3  ">
+      <div className="   ">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <div className="flex justify-center regular-24">Create New Post</div>
           <div>
-            <label className=" regular-16">Title:</label>
+            <label className=" regular-16 flex justify-center">Title:</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
-              className="border-1"
+              className="border-1 border-black text-gray-500 w-full rounded-2xl px-2  "
+              placeholder="Title In Capital Letters"
             />
           </div>
           <div>
-            <label className=" regular-16">Author:</label>
+            <label className=" regular-16 flex justify-center">Author:</label>
             <input
               type="text"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               required
-              className="border-1"
+              className="border-1 border-black text-gray-500 w-full rounded-2xl px-2  "
+              placeholder="Name You Want Displayed"
             />
           </div>
           <div>
-            <label className=" regular-16">Content:</label>
+            <label className=" regular-16 flex justify-center">Content :</label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
-              className="border-1"
+              className="border-1 border-black text-gray-500 w-full rounded-2xl px-2  "
+              placeholder="Your Blog Post"
             ></textarea>
           </div>
           <button type="submit" className=" border-1 rounded-4xl">

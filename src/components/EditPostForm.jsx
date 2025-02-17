@@ -22,48 +22,56 @@ const EditPostForm = ({ post, toggleEdit }) => {
 
   return (
     <>
-      <div className=" bg-[#dda15e] border-2 rounded-2xl p-3  ">
+      {/* bg-[#dda15e] border-2 p-2  rounded-2xl w-full */}
+      <div className="  ">
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 ">
+          <button
+            type="button"
+            onClick={toggleEdit}
+            className=" flex justify-end"
+          >
+            &times;
+          </button>
+          {/*             <div className="border-1 p-2 text-white bg-black rounded-full ">x</div>
+           */}
           <div className="flex justify-center regular-24 ">Edit Post</div>
           <div>
-            <label className="regular-16">Post Title:</label>
+            <label className="regular-16 flex justify-center">
+              Title:
+            </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
-              className="border-1"
+              className="border-1 w-full rounded-2xl px-2"
             />
           </div>
           <div>
-            <label className="regular-16">Author:</label>
+            <label className="regular-16 flex justify-center">Author:</label>
             <input
               type="text"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               required
-              className="border-1"
+              className="border-1 w-full rounded-2xl px-2"
             />
           </div>
           <div>
-            <label className="regular-16">Content:</label>
+            <label className="regular-16 flex justify-center">Content:</label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
-              className="border-1"
+              className="border-1 w-full rounded-2xl px-3"
             ></textarea>
           </div>
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> */}
           <button type="submit" className="border-1 rounded-4xl">
             Update Post
           </button>
-          <button
-            type="button"
-            onClick={toggleEdit}
-            className="border-1 rounded-4xl"
-          >
-            Cancel
-          </button>
+
+          {/* </div> */}
         </form>
       </div>
     </>
