@@ -23,13 +23,17 @@ const EditPostForm = ({ post, toggleEdit }) => {
   return (
     <>
       <div className="  ">
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 ">
+        {/* className="regular-18 text-[#caf0f8] bg-[#1e3751] border border-[#1e3751] py-1 px-4 mt-6 mb-3 rounded-4xl" */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-2 text-[#caf0f8]"
+        >
           <button
             type="button"
             onClick={toggleEdit}
             className=" flex justify-end"
           >
-            <div className="border border-black rounded-4xl text-[#dda15e] bg-black medium-24 w-8 h-8 flex items-center justify-center ">
+            <div className="border border-black rounded-4xl text-[#caf0f8] bg-black medium-24 w-8 h-8 flex items-center justify-center ">
               x
             </div>
           </button>
@@ -42,7 +46,8 @@ const EditPostForm = ({ post, toggleEdit }) => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
-              className="border-1 w-full rounded-2xl px-2"
+              // className="border-1 w-full rounded-2xl px-2"
+              className="border-1 border-black text-[#caf0f8] w-full rounded-2xl px-2  "
             />
           </div>
           <div>
@@ -52,7 +57,8 @@ const EditPostForm = ({ post, toggleEdit }) => {
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               required
-              className="border-1 w-full rounded-2xl px-2"
+              // className="border-1 w-full rounded-2xl px-2"
+              className="border-1 border-black text-[#caf0f8] w-full rounded-2xl px-2  "
             />
           </div>
           <div>
@@ -61,10 +67,14 @@ const EditPostForm = ({ post, toggleEdit }) => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
-              className="border-1 w-full rounded-2xl px-3"
+              // className="border-1 w-full rounded-2xl px-3"
+              className="border-1 border-black text-[#caf0f8] w-full rounded-2xl px-3  "
             ></textarea>
           </div>
-          <button type="submit" className=" w-[%0%] border-1  border-black rounded-4xl text-[#dda15e] bg-black">
+          <button
+            type="submit"
+            className=" w-[%0%] border-1  border-black rounded-4xl text-[#caf0f8] bg-black"
+          >
             Update Post
           </button>
         </form>

@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import CardComponent from "./components/CardComponent";
 
-function App({ post }) {
+function App() {
   
 
   return (

@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-/* import 'tailwindcss'; */
-/* @import 'tailwindcss'; */
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 @import "tailwindcss";
@@ -20,7 +15,12 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: rgb(211, 170, 119);
+  /* background-color: rgb(211, 170, 119); */
+  /* background-color: #e0e1dd; */
+  /* background-color: #778da9; */
+  /* background-color: #2b2d42; */
+  background-color: #0d1b2a;
+
 }
 
 body {
