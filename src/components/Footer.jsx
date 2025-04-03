@@ -4,7 +4,8 @@ const Footer = () => {
   return (
     <>
       <div className="  w-full text-center " id="footer">
-        <hr className="bg-[#caf0f8]  my-4" />
+        {/* <hr className="bg-[#caf0f8]  my-4" /> */}
+        <div className="bg-[#caf0f8] my-6 h-0.5"> </div>
         <div className="flex flex-col text-[#caf0f8] ">
           <div className=" flex justify-center  ">
             <p>All rights reserved &copy;2024. </p>
